@@ -187,11 +187,7 @@ describe('Footer component', () => {
   it('should have policy links with correct hrefs', () => {
     render(<Footer />)
     const policyLinks = [
-      // FFC's own donation policy: label hardcoded to FFC on purpose, since it
-      // describes FFC's policy and not this charity's.
-      { text: 'Free For Charity Donation Policy', href: '/free-for-charity-donation-policy' },
-      // The charity's own donation policy: fixed label, no name interpolation.
-      { text: 'Donation Policy', href: '/donation-policy' },
+      { text: `${siteConfig.name} Donation Policy`, href: '/donation-policy' },
       { text: `${siteConfig.name} Privacy Policy`, href: '/privacy-policy' },
       { text: `${siteConfig.name} Cookie Policy`, href: '/cookie-policy' },
       { text: `${siteConfig.name} Terms of Service`, href: '/terms-of-service' },

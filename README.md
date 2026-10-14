@@ -51,15 +51,14 @@ Visit [http://localhost:3000](http://localhost:3000)
 
 ### Policy Pages (7 Routes)
 
-| Route                               | Content                               |
-| ----------------------------------- | ------------------------------------- |
-| `/privacy-policy`                   | Privacy Policy                        |
-| `/cookie-policy`                    | Cookie Policy                         |
-| `/terms-of-service`                 | Terms of Service                      |
-| `/donation-policy`                  | Donation Policy                       |
-| `/free-for-charity-donation-policy` | Organization-specific Donation Policy |
-| `/vulnerability-disclosure-policy`  | Vulnerability Disclosure Policy       |
-| `/security-acknowledgements`        | Security Acknowledgements             |
+| Route                              | Content                         |
+| ---------------------------------- | ------------------------------- |
+| `/privacy-policy`                  | Privacy Policy                  |
+| `/cookie-policy`                   | Cookie Policy                   |
+| `/terms-of-service`                | Terms of Service                |
+| `/donation-policy`                 | Donation Policy                 |
+| `/vulnerability-disclosure-policy` | Vulnerability Disclosure Policy |
+| `/security-acknowledgements`       | Security Acknowledgements       |
 
 ### SEO & Infrastructure
 
@@ -91,7 +90,6 @@ src/
     home-page/                            # Homepage wrapper
     cookie-policy/page.tsx                # Cookie Policy
     donation-policy/page.tsx              # Donation Policy
-    free-for-charity-donation-policy/     # FFC Donation Policy
     privacy-policy/page.tsx               # Privacy Policy
     security-acknowledgements/page.tsx    # Security Acknowledgements
     terms-of-service/page.tsx             # Terms of Service

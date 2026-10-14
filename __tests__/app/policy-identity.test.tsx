@@ -6,7 +6,6 @@ import CookiePolicyPage from '../../src/app/cookie-policy/page'
 import TermsPage from '../../src/app/terms-of-service/page'
 import VulnDisclosurePage from '../../src/app/vulnerability-disclosure-policy/page'
 import SecurityAckPage from '../../src/app/security-acknowledgements/page'
-import FfcDonationPolicyPage from '../../src/app/free-for-charity-donation-policy/page'
 import { siteConfig } from '../../src/lib/site.config'
 
 /**
@@ -200,15 +199,5 @@ describe('the supporting-organization disclosure', () => {
       (a) => a.getAttribute('href') === siteConfig.supportedBy.url
     )
     expect(links.length).toBeGreaterThan(0)
-  })
-})
-
-// Free For Charity's own donation policy is published on a supported site on
-// purpose and correctly keeps FFC's identity. Asserting that stops an
-// over-zealous future rebrand from "fixing" it.
-describe("the supporting organization's own donation policy", () => {
-  it('keeps Free For Charity as its subject', () => {
-    const { container } = render(<FfcDonationPolicyPage />)
-    expect(container.textContent).toContain('Free For Charity')
   })
 })

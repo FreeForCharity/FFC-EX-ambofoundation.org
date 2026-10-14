@@ -12,8 +12,7 @@ const policyPages = [
   { path: '/privacy-policy', heading: 'Privacy Policy' },
   { path: '/cookie-policy', heading: 'Cookie Policy' },
   { path: '/terms-of-service', heading: 'Terms of Service' },
-  { path: '/donation-policy', heading: 'Donation Policy' },
-  { path: '/free-for-charity-donation-policy', heading: 'Free For Charity Donation Policy' },
+  { path: '/donation-policy', heading: `${testConfig.site.name} Donation Policy` },
   { path: '/security-acknowledgements', heading: 'Security Acknowledgements' },
   {
     path: '/vulnerability-disclosure-policy',
@@ -24,10 +23,7 @@ const policyPages = [
 // Footer policy links use "Free For Charity" prefix and map to specific routes.
 // With trailingSlash enabled, Next.js Link renders hrefs with trailing slashes.
 const footerPolicyLinks = [
-  { name: 'Free For Charity Donation Policy', href: '/free-for-charity-donation-policy/' },
-  // The charity's own donation policy. Matched with exact names below so this
-  // does not also match "Free For Charity Donation Policy".
-  { name: 'Donation Policy', href: '/donation-policy/' },
+  { name: `${testConfig.site.name} Donation Policy`, href: '/donation-policy/' },
   { name: `${testConfig.site.name} Privacy Policy`, href: '/privacy-policy/' },
   { name: `${testConfig.site.name} Cookie Policy`, href: '/cookie-policy/' },
   { name: `${testConfig.site.name} Terms of Service`, href: '/terms-of-service/' },
@@ -54,8 +50,6 @@ test.describe('Policy pages', () => {
     const footer = page.locator('footer')
 
     for (const { name, href } of footerPolicyLinks) {
-      // exact: true — "Donation Policy" is a substring of "Free For Charity
-      // Donation Policy", so substring matching would hit both links.
       const link = footer.getByRole('link', { name, exact: true })
       await expect(link).toBeVisible()
       await expect(link).toHaveAttribute('href', href)

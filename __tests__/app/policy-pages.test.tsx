@@ -67,7 +67,9 @@ describe('Policy page rendering', () => {
 
   it('Donation Policy renders heading and EIN', () => {
     const { container } = render(<DonationPolicyPage />)
-    expect(screen.getByText('Donation Policy')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
+      `${siteConfig.name} Donation Policy`
+    )
     // A pending EIN is empty, and no "(EIN: )" is rendered for it.
     if (siteConfig.ein.trim()) {
       expect(screen.getByText(new RegExp(siteConfig.ein))).toBeInTheDocument()
@@ -135,13 +137,14 @@ describe('Policy page rendering', () => {
     render(<DonationPolicyPage />)
     expect(screen.getByText('Tax Deductibility')).toBeInTheDocument()
     expect(screen.getByText('Use of Donations')).toBeInTheDocument()
-    expect(screen.getByText('Refund Policy')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 2, name: 'Refunds' })).toBeInTheDocument()
   })
 
   it('Donation Policy has a contact email link', () => {
     render(<DonationPolicyPage />)
-    const emailLink = screen.getByText(siteConfig.contactEmail)
-    expect(emailLink.closest('a')).toHaveAttribute('href', `mailto:${siteConfig.contactEmail}`)
+    for (const link of screen.getAllByText(siteConfig.contactEmail)) {
+      expect(link.closest('a')).toHaveAttribute('href', `mailto:${siteConfig.contactEmail}`)
+    }
   })
 
   it('Security Acknowledgements renders heading', () => {
