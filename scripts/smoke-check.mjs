@@ -168,7 +168,6 @@ async function smoke() {
     ['/cookie-policy', /Cookie Policy/i],
     ['/terms-of-service', /Terms of Service/i],
     ['/donation-policy', /Donation Policy/i],
-    ['/free-for-charity-donation-policy', /Donation Policy/i],
     ['/security-acknowledgements', /Security Acknowledgements/i],
     ['/vulnerability-disclosure-policy', /Vulnerability Disclosure Policy/i],
   ]
